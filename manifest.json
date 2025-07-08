@@ -1,0 +1,18 @@
+{
+  "name": "Discord Meowifier",
+  "description": "Turns Discord messages into meows (and cute mentions) on discord.com.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["*://*.discord.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "discord-kitty.png",
+    "48": "discord-kitty.png",
+    "128": "discord-kitty.png"
+  }
+}
