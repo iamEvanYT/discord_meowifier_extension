@@ -10,9 +10,9 @@
 
     if (cls.contains("mention")) {
       span.textContent = "@kitty :3";
-    } else if (cls.contains("roleMention__75297")) {
+    } else if (cls.contains("_752971923a1e6683-roleMention")) {
       span.textContent = "@kittens <3";
-    } else if (cls.contains("emojiContainerClickable__75abc")) {
+    } else if (cls.contains("_75abce0dd8453367-emojiContainerClickable")) {
       const img = span.querySelector("img");
       if (img) img.src = "/assets/80d98aa027a3ee75.svg";
     } else {
@@ -43,7 +43,9 @@
   const start = () => {
     /* first pass on what’s already rendered */
     document
-      .querySelectorAll(".markup__75297.messageContent_c19a55")
+      .querySelectorAll(
+        "._752971923a1e6683-markup.c19a557985eb7793-messageContent"
+      )
       .forEach(hackMessage);
 
     /* react to new messages from here on */
@@ -51,11 +53,17 @@
       for (const mut of muts) {
         for (const node of mut.addedNodes) {
           if (node.nodeType !== 1) continue;
-          if (node.matches?.(".markup__75297.messageContent_c19a55")) {
+          if (
+            node.matches?.(
+              "._752971923a1e6683-markup.c19a557985eb7793-messageContent"
+            )
+          ) {
             hackMessage(node);
           } else {
             node
-              .querySelectorAll?.(".markup__75297.messageContent_c19a55")
+              .querySelectorAll?.(
+                "._752971923a1e6683-markup.c19a557985eb7793-messageContent"
+              )
               .forEach(hackMessage);
           }
         }
